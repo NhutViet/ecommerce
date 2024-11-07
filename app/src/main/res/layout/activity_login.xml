@@ -13,8 +13,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đăng nhập tài khoản của bạn"
+        android:text="Đăng nhập "
         android:textSize="24sp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         />
     <EditText
@@ -29,13 +30,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:inputType="textPassword"
         android:hint="Mật khẩu"/>
 
     <TextView
         android:id="@+id/txtQuenMk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fotgot Password?"
+        android:text="@string/quenmatkhau"
         android:gravity="end"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"

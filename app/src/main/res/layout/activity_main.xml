@@ -75,7 +75,7 @@
         android:id="@+id/bottomNavBar"
 
         android:layout_width="match_parent"
-        android:layout_height="95dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
 
         app:menu="@menu/bottom_nav"

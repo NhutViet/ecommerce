@@ -58,7 +58,7 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(Register.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(Register.this, Login.class));
+                                    startActivity(new Intent(Register.this, com.viethcn.myapplication.Login.class));
                                 } else {
                                     Toast.makeText(Register.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                                 }
@@ -70,7 +70,7 @@ public class Register extends AppCompatActivity {
         txtDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Register.this, Login.class));
+                startActivity(new Intent(Register.this, com.viethcn.myapplication.Login.class));
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.viethcn.myapplication;
+package com.viethcn.myapplication.Adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+
+import com.viethcn.myapplication.Models.Product;
+import com.viethcn.myapplication.R;
 
 import java.util.List;
 

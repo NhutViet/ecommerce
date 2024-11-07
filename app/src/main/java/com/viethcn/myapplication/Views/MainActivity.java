@@ -1,4 +1,4 @@
-package com.viethcn.myapplication;
+package com.viethcn.myapplication.Views;
 
 import android.os.Bundle;
 
@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.viethcn.myapplication.Models.Product;
+import com.viethcn.myapplication.Adapters.ProductAdapter;
+import com.viethcn.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;

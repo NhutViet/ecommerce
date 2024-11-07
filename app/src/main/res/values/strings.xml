@@ -2,4 +2,5 @@
     <string name="app_name">My Application</string>
     <string name="quenmatkhau"> <u>Quên mật khẩu?</u> </string>
     <string name="dangky">Bạn có tài khoản? <u>Đăng ký</u> </string>
+    <string name="dangnhap">Đã có tài khoản rồi! <u>Đăng Nhập</u></string>
 </resources>

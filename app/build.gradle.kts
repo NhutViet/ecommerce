@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation (libs.imageslideshow)
 
     implementation(libs.appcompat)
     implementation(libs.material)

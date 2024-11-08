@@ -1,4 +1,4 @@
-package com.viethcn.myapplication;
+package com.viethcn.myapplication.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.viethcn.myapplication.R;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -58,7 +59,7 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(Register.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(Register.this, com.viethcn.myapplication.Login.class));
+                                    startActivity(new Intent(Register.this, Login.class));
                                 } else {
                                     Toast.makeText(Register.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                                 }
@@ -70,7 +71,7 @@ public class Register extends AppCompatActivity {
         txtDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Register.this, com.viethcn.myapplication.Login.class));
+                startActivity(new Intent(Register.this, Login.class));
             }
         });
     }

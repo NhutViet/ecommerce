@@ -1,4 +1,4 @@
-package com.viethcn.myapplication;
+package com.viethcn.myapplication.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.viethcn.myapplication.R;
 import com.viethcn.myapplication.Views.MainActivity;
 
 public class Login extends AppCompatActivity {
@@ -70,7 +71,7 @@ public class Login extends AppCompatActivity {
         txtDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, com.viethcn.myapplication.Register.class));
+                startActivity(new Intent(Login.this, Register.class));
             }
         });
 

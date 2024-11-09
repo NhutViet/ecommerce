@@ -1,4 +1,4 @@
-package com.viethcn.myapplication;
+package com.viethcn.myapplication.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.viethcn.myapplication.R;
+import com.viethcn.myapplication.Views.Login;
 
 public class Register extends AppCompatActivity {
 
@@ -39,6 +41,7 @@ public class Register extends AppCompatActivity {
             String tenDangNhap = edtTenDangNhap.getText().toString();
             String matKHau = edtNhapPass.getText().toString();
             String RePass = edtRePass.getText().toString();
+
             }
         });
 

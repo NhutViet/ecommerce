@@ -1,7 +1,10 @@
 package com.viethcn.myapplication.Views;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -24,7 +28,7 @@ import com.viethcn.myapplication.Views.MainActivity;
 
 public class Login extends AppCompatActivity {
 
-    TextView txtDangKy;
+    TextView txtDangKy, txtQuenMk;
     EditText edtTenDangNhap, edtMatKhau;
 
     Button btnDangNhap;
@@ -41,6 +45,7 @@ public class Login extends AppCompatActivity {
         edtTenDangNhap = findViewById(R.id.edtTenDangNhap);
         edtMatKhau = findViewById(R.id.edtMatKhau);
         btnDangNhap = findViewById(R.id.btnDangNhap);
+        txtQuenMk = findViewById(R.id.txtQuenMk);
 
 
 
@@ -66,6 +71,15 @@ public class Login extends AppCompatActivity {
         });
 
 
+    txtQuenMk.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showDialogQuenMK();
+
+        }
+    });
+
+
 
 
         txtDangKy.setOnClickListener(new View.OnClickListener() {
@@ -76,4 +90,51 @@ public class Login extends AppCompatActivity {
         });
 
     }
+
+    private void showDialogQuenMK() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_quenmatkhau, null);
+        builder.setView(view);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCancelable(false);
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        EditText edtUsername = view.findViewById(R.id.edtUserName);
+        Button btnSend = view.findViewById(R.id.btnSend);
+        Button btnCancel = view.findViewById(R.id.btnCancel);
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = edtUsername.getText().toString().trim();
+                if (email.isEmpty()) {
+                    Toast.makeText(Login.this, "Vui lòng nhập email hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Login.this, "Đã gửi email đặt lại mật khẩu. Kiểm tra hộp thư đến của bạn.", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(Login.this, "Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại sau.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                alertDialog.dismiss();
+            }
+        });
+    }
+
 }

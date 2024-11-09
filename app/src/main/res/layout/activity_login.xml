@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đăng nhập tài khoản của bạn"
+        android:text="Đăng nhập"
         android:textSize="24sp"
         android:gravity="center"
         android:textStyle="bold"
@@ -38,7 +38,7 @@
         android:id="@+id/txtQuenMk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quên mật khẩu?"
+        android:text="@string/quenmatkhau"
         android:textSize="16sp"
         android:gravity="end"
         android:layout_marginTop="10dp"

@@ -16,10 +16,10 @@
             android:name=".Views.Register"
             android:exported="false" />
         <activity
-            android:name=".Views.MainActivity"
+            android:name=".Views.Login"
             android:exported="false" />
         <activity
-            android:name=".Views.Login"
+            android:name=".Views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

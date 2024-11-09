@@ -24,7 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.viethcn.myapplication.R;
-import com.viethcn.myapplication.Views.MainActivity;
+import com.viethcn.myapplication.Views.Register;
 
 public class Login extends AppCompatActivity {
 
@@ -47,8 +47,6 @@ public class Login extends AppCompatActivity {
         btnDangNhap = findViewById(R.id.btnDangNhap);
         txtQuenMk = findViewById(R.id.txtQuenMk);
 
-
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
@@ -56,31 +54,28 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String tenDangNhap = edtTenDangNhap.getText().toString();
                 String matKhau = edtMatKhau.getText().toString();
-                firebaseAuth.signInWithEmailAndPassword(tenDangNhap, matKhau).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this, MainActivity.class));
-                        }else {
-                            Toast.makeText(Login.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                firebaseAuth.signInWithEmailAndPassword(tenDangNhap, matKhau).addOnCompleteListener(Login.this,
+                        new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(Login.this, "Dang nhap thanh cong", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(Login.this, MainActivity.class));
+                                } else {
+                                    Toast.makeText(Login.this, "Dang nhap khong thanh cong", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
 
+        txtQuenMk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogQuenMK();
 
-    txtQuenMk.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            showDialogQuenMK();
-
-        }
-    });
-
-
-
+            }
+        });
 
         txtDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +89,9 @@ public class Login extends AppCompatActivity {
     private void showDialogQuenMK() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_quenmatkhau, null);
+
+        View view = inflater.inflate(R.layout.dialog_forgot, null);
+
         builder.setView(view);
 
         AlertDialog alertDialog = builder.create();
@@ -126,9 +123,11 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Đã gửi email đặt lại mật khẩu. Kiểm tra hộp thư đến của bạn.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "Đã gửi email đặt lại mật khẩu. Kiểm tra hộp thư đến của bạn.",
+                                    Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(Login.this, "Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại sau.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại sau.",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
